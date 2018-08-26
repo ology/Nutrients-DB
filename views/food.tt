@@ -1,0 +1,47 @@
+<div id="page">
+
+    <div id="content">
+
+        <div id="header">
+            <h1><a href="/">[% page_title %]</a></h1>
+        </div>
+
+        <div id="foods">
+            <h1>
+[% FOREACH i IN ['A' .. 'Z'] %]
+    [% IF i == letter %]
+                <b>[% i %]</b>
+    [% ELSE %]
+                <a href="/?letter=[% i %]">[% i %]</a>
+    [% END %]
+    [% IF i != 'Z' %]
+                |
+    [% END %]
+[% END %]
+            </h1>
+
+            <p><h1>[% food %]</h1>
+            <h2>[% fgroup %]</h2></p>
+
+            <p><h2>Portions:</h2></p>
+            <ul>
+[% FOREACH key IN portions.keys.sort %]
+                <li>
+                    [% portions.$key.amount %] [% portions.$key.unit %] ([% portions.$key.grams %] grams)
+                </li>
+[% END %]
+            </ul>
+
+            <p><h2>Nutrients:</h2></p>
+            <ul>
+[% FOREACH key IN nutrients.keys.sort %]
+                <li>
+                    [% nutrients.$key.nutrient %] ([% nutrients.$key.nutgroup %]) : [% nutrients.$key.value %] [% nutrients.$key.units %]
+                </li>
+[% END %]
+            </ul>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,33 @@
+<div id="page">
+
+    <div id="content">
+
+        <div id="header">
+            <h1><a href="/">[% page_title %]</a></h1>
+        </div>
+
+        <div id="foods">
+            <h1>
+[% FOREACH i IN ['A' .. 'Z'] %]
+    [% IF i == letter %]
+                <b>[% i %]</b>
+    [% ELSE %]
+                <a href="/?letter=[% i %]">[% i %]</a>
+    [% END %]
+    [% IF i != 'Z' %]
+                |
+    [% END %]
+[% END %]
+            </h1>
+            <ol>
+[% FOREACH key IN results.keys.sort %]
+            <li>
+                <a href="/food?id=[% results.$key.id %]">[% results.$key.food %]</a>
+            </li>
+[% END %]
+            </ol>
+        </div>
+
+    </div>
+
+</div>
