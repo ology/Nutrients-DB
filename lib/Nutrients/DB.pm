@@ -46,21 +46,14 @@ get '/' => sub {
 get '/food' => sub {
     my $id = query_parameters->{id};
 
-    my $portions  = {};
     my $nutrients = {};
     my $food      = '';
     my $fgroup    = '';
 
     if ( $id ) {
-        my $table = 'portions';
+        my $table = 'nutrients';
         my $sql = qq/SELECT * FROM $table WHERE id = ?/;
         my $sth = database($table)->prepare($sql);
-        $sth->execute($id);
-        $portions = $sth->fetchall_hashref('unit');
-
-        $table = 'nutrients';
-        $sql = qq/SELECT * FROM $table WHERE id = ?/;
-        $sth = database($table)->prepare($sql);
         $sth->execute($id);
         $nutrients = $sth->fetchall_hashref('nutrient');
 
@@ -73,7 +66,6 @@ get '/food' => sub {
 
     template 'food' => {
         page_title => 'Nutrients::DB',
-        portions   => $portions,
         nutrients  => $nutrients,
         food       => $food,
         fgroup     => $fgroup,

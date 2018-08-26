@@ -23,16 +23,12 @@
             <p><h1>[% food %]</h1>
             <h2>[% fgroup %]</h2></p>
 
-            <p><h2>Portions:</h2></p>
-            <ul>
-[% FOREACH key IN portions.keys.sort %]
-                <li>
-                    [% portions.$key.amount %] [% portions.$key.unit %] ([% portions.$key.grams %] grams)
-                </li>
-[% END %]
-            </ul>
+            <p><b>Portions:</b></p>
+            <p>
+                Per 100 grams
+            </p>
 
-            <p><h2>Nutrients:</h2></p>
+            <p><b>Nutrients:</b></p>
             <ul>
 [% FOREACH key IN nutrients.keys.sort %]
                 <li>
