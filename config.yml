@@ -56,7 +56,7 @@ plugins:
         connections:
             nutrients:
                 driver: "SQLite"
-                database: "/Users/gene/tmp/data/nutrients.sqlite"
+                database: "nutrients.sqlite"
             portions:
                 driver: "SQLite"
-                database: "/Users/gene/tmp/data/portions.sqlite"
+                database: "portions.sqlite"
