@@ -51,16 +51,6 @@ template: "template_toolkit"
 #      is_secure: 1
 #      is_http_only: 1
 
-session: "DatabasePlugin"
-
-engines:
-  session:
-    DatabasePlugin:
-      connection: "sessions"
-      session_table: "SESSIONS"
-      id_column:     "SESSION_ID"
-      data_column:   "SESSION_DATA"
-
 plugins:
     Database:
         connections:
@@ -70,6 +60,3 @@ plugins:
             portions:
                 driver: "SQLite"
                 database: "/Users/gene/tmp/data/portions.sqlite"
-            sessions:
-                driver: "SQLite"
-                database: "/Users/gene/tmp/data/sessions.sqlite"

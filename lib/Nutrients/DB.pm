@@ -4,7 +4,6 @@ package Nutrients::DB;
 
 use Dancer2;
 use Dancer2::Plugin::Database;
-#use Dancer2::Plugin::SessionDatabase;
 
 our $VERSION = '0.01';
 
@@ -25,8 +24,6 @@ Main page.
 =cut
 
 get '/' => sub {
-#    _log_session(666, 'Hello!');
-
     my $letter = query_parameters->{letter};
 
     my $results = {};
@@ -82,15 +79,6 @@ get '/food' => sub {
         fgroup     => $fgroup,
     };
 };
-
-sub _log_session {
-    my ($id, $data) = @_;
-    my $tab = 'sessions';
-    my $s = Dancer2::Session::DatabasePlugin->new(connection => $tab);
-    my $sql = $s->create_flush_query();
-    my $sth = database($tab)->prepare($sql);
-    $sth->execute($id, $data);
-}
 
 true;
 
