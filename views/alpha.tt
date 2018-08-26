@@ -1,0 +1,12 @@
+            <h1>
+[% FOREACH i IN ['A' .. 'Z'] %]
+    [% IF i == letter %]
+                <b>[% i %]</b>
+    [% ELSE %]
+                <a href="/?letter=[% i %]">[% i %]</a>
+    [% END %]
+    [% IF i != 'Z' %]
+                |
+    [% END %]
+[% END %]
+            </h1>

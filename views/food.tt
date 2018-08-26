@@ -7,18 +7,7 @@
         </div>
 
         <div id="foods">
-            <h1>
-[% FOREACH i IN ['A' .. 'Z'] %]
-    [% IF i == letter %]
-                <b>[% i %]</b>
-    [% ELSE %]
-                <a href="/?letter=[% i %]">[% i %]</a>
-    [% END %]
-    [% IF i != 'Z' %]
-                |
-    [% END %]
-[% END %]
-            </h1>
+[% INCLUDE 'alpha.tt' %]
 
             <p><h1>[% food %]</h1>
             <h2>[% fgroup %]</h2></p>
