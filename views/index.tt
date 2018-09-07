@@ -13,6 +13,7 @@
             <form action="/compare" method="post">
             <p>
             <input type="submit" name="submit" value="Compare" />
+            <input type="reset" name="reset" value="Reset" />
 
             <ol>
 [% FOREACH key IN results.keys.sort %]
