@@ -72,6 +72,54 @@ get '/food' => sub {
     };
 };
 
+post '/compare' => sub {
+    my @compare = body_parameters->get_all('compare');
+
+    my $nutrients1 = {};
+    my $nutrients2 = {};
+    my $food1      = '';
+    my $food2      = '';
+
+    if ( @compare == 2 ) {
+        my $table = 'nutrients';
+        my $sql = qq/SELECT * FROM $table WHERE id = ?/;
+        my $sth = database($table)->prepare($sql);
+        $sth->execute($compare[0]);
+        $nutrients1 = $sth->fetchall_hashref('nutrient');
+
+        for my $v ( values %$nutrients1 ) {
+            $food1 = $v->{food};
+            last;
+        }
+
+        $sth->execute($compare[1]);
+        $nutrients2 = $sth->fetchall_hashref('nutrient');
+
+        for my $v ( values %$nutrients2 ) {
+            $food2 = $v->{food};
+            last;
+        }
+
+        my $nuts = {};
+
+        for my $k ( keys %$nutrients2 ) {
+            $nuts->{$k} = $nutrients2->{$k}{value};
+        }
+
+        for my $k ( keys %$nutrients1 ) {
+            $nutrients1->{$k}{value} = $nutrients1->{$k}{value} . ' / '
+                . $nuts->{$k};
+        }
+    }
+
+    template 'compare' => {
+        page_title => 'Nutrients::DB',
+        food1      => $food1,
+        food2      => $food2,
+        nutrients  => $nutrients1,
+    };
+};
+
 true;
 
 __END__

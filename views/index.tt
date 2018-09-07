@@ -9,13 +9,23 @@
         <div id="foods">
 [% INCLUDE 'alpha.tt' %]
 
+[% IF results.size %]
+            <form action="/compare" method="post">
+            <p>
+            <input type="submit" name="submit" value="Compare" />
+
             <ol>
 [% FOREACH key IN results.keys.sort %]
             <li>
+                <input type="checkbox" name="compare" value="[% results.$key.id %]" />
                 <a href="/food?id=[% results.$key.id %]">[% results.$key.food %]</a>
             </li>
 [% END %]
             </ol>
+
+            </form>
+
+[% END %]
         </div>
 
     </div>

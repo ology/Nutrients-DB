@@ -1,0 +1,31 @@
+<div id="page">
+
+    <div id="content">
+
+        <div id="header">
+            <h1><a href="/" style="text-decoration: none;">[% page_title %]</a></h1>
+        </div>
+
+        <div id="foods">
+[% INCLUDE 'alpha.tt' %]
+
+            <p><h1>Compare:</h1>
+            [% food1 %]<br>
+            [% food2 %]
+            </p>
+
+            <p><b>Portion:</b> Per 100 grams (3.5 oz, 0.5 cup)</p>
+
+            <p><b>Nutrients:</b></p>
+            <ul>
+[% FOREACH key IN nutrients.keys.sort %]
+                <li>
+                    [% nutrients.$key.nutrient %] ([% nutrients.$key.nutgroup %]) : [% nutrients.$key.value %] [% nutrients.$key.units %]
+                </li>
+[% END %]
+            </ul>
+        </div>
+
+    </div>
+
+</div>
