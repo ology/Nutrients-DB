@@ -127,7 +127,7 @@ post '/compare' => sub {
 
         for my $k ( keys %$nutrients1 ) {
             $nutrients1->{$k}{value} = $nutrients1->{$k}{value} . ' / '
-                . $nuts->{$k};
+                . ($nuts->{$k} ? $nuts->{$k} : 0);
         }
     }
 
