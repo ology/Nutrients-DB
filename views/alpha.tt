@@ -3,7 +3,7 @@
     [% IF i == letter %]
                 <b>[% i %]</b>
     [% ELSE %]
-                <a href="/?letter=[% i %]">[% i %]</a>
+                <a href="/?letter=[% i %]" style="text-decoration: none;">[% i %]</a>
     [% END %]
     [% IF i != 'Z' %]
                 |
