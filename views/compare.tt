@@ -19,8 +19,8 @@
 [% INCLUDE 'alpha.tt' %]
 
             <p><h1>Compare:</h1>
-            [% food1 %]<br>
-            [% food2 %]
+            1. [% food1 %]<br>
+            2. [% food2 %]
             </p>
 
             <p><b>Portion:</b> Per 100 grams (3.5 oz, 0.5 cup)</p>
