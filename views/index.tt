@@ -12,13 +12,13 @@
 [% IF results.size %]
             <form action="/compare" method="post">
             <p>
-            <input type="submit" name="submit" value="Compare" />
+            <input type="submit" name="submit" value="Compare" id="compare" />
             <input type="reset" name="reset" value="Reset" />
 
             <ol>
 [% FOREACH key IN results.keys.sort %]
             <li>
-                <input type="checkbox" name="compare" value="[% results.$key.id %]" />
+                <input type="checkbox" name="compare" value="[% results.$key.id %]" id="compare_foods" />
                 <a href="/food?id=[% results.$key.id %]">[% results.$key.food %]</a>
             </li>
 [% END %]
