@@ -122,7 +122,7 @@ post '/compare' => sub {
         my $nuts = {};
 
         for my $k ( keys %$nutrients2 ) {
-            $nuts->{$k} = $nutrients2->{$k}{value} || 0;
+            $nuts->{$k} = $nutrients2->{$k}{value};
         }
 
         for my $k ( keys %$nutrients1 ) {
