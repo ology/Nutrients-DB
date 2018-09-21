@@ -30,9 +30,9 @@ get '/' => sub {
 
     if ( $letter ) {
         my $table = 'nutrients';
-        my $sql = qq/SELECT DISTINCT id, food FROM $table WHERE food LIKE "$letter%"/;
+        my $sql = qq/SELECT DISTINCT id, food FROM $table WHERE food LIKE ?/;
         my $sth = database($table)->prepare($sql);
-        $sth->execute();
+        $sth->execute( $letter . '%' );
         $results = $sth->fetchall_hashref('food');
     }
 
@@ -50,9 +50,9 @@ post '/search' => sub {
 
     if ( $search ) {
         my $table = 'nutrients';
-        my $sql = qq/SELECT DISTINCT id, food FROM $table WHERE food LIKE "%$search%"/;
+        my $sql = qq/SELECT DISTINCT id, food FROM $table WHERE food LIKE ?/;
         my $sth = database($table)->prepare($sql);
-        $sth->execute();
+        $sth->execute( '%' . $search . '%' );
         $results = $sth->fetchall_hashref('food');
     }
 
