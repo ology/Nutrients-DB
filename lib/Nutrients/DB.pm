@@ -43,6 +43,25 @@ get '/' => sub {
     };
 };
 
+post '/search' => sub {
+    my $search = body_parameters->{search_text};
+
+    my $results = {};
+
+    if ( $search ) {
+        my $table = 'nutrients';
+        my $sql = qq/SELECT DISTINCT id, food FROM $table WHERE food LIKE "%$search%"/;
+        my $sth = database($table)->prepare($sql);
+        $sth->execute();
+        $results = $sth->fetchall_hashref('food');
+    }
+
+    template 'index' => {
+        page_title => 'Nutrients::DB',
+        results    => $results,
+    };
+};
+
 get '/food' => sub {
     my $id = query_parameters->{id};
 
