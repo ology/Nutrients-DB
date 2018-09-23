@@ -37,4 +37,72 @@
 
     </div>
 
+[% vals = [] %]
+[% FOREACH key IN nutrients.keys.sort %]
+    [% v = nutrients.$key.value %]
+    [% w = v.split(' / ') %]
+    [% x = '["' _ key _ '", ' _ w.0 _ ',' _ w.1 _ ']' %]
+    [% vals.push(x) %]
+[% END %]
+
+<script src="https://cdn.anychart.com/releases/develop/js/anychart-base.min.js"></script>
+<script src="https://cdn.anychart.com/releases/develop/js/anychart-ui.min.js"></script>
+<script src="https://cdn.anychart.com/releases/develop/js/anychart-exports.min.js"></script>
+<link rel="stylesheet" href="https://cdn.anychart.com/releases/develop/css/anychart-ui.min.css" />
+<link rel="stylesheet" href="https://cdn.anychart.com/releases/develop/fonts/css/anychart-font.min.css" />
+<style>
+    #container {
+      width: 100%;
+      height: 2000px;
+      margin: 0;
+      padding: 0;
+    }
+</style>
+<div id="container"></div>
+<script type="text/javascript">
+anychart.onDocumentReady(function() {
+  // create data set on our data
+  chartData = {
+    title: '',
+    header: ['#', '[% food1 %]', '[% food2 %]'],
+    rows: [[% vals.join(',') %]]
+  };
+
+  // create column chart
+  var chart = anychart.bar();
+
+  // set chart data
+  chart.data(chartData);
+
+  // turn on chart animation
+  chart.animation(true);
+
+  chart.yAxis().labels().format('{%Value}{groupsSeparator:}');
+
+  // turn on legend and tune it
+  chart.legend()
+    .enabled(true)
+    .fontSize(13)
+    .padding([0, 0, 20, 0]);
+
+  // interactivity settings and tooltip position
+  chart.interactivity().hoverMode('single');
+
+  chart.tooltip()
+    .positionMode('point')
+    .position('center-top')
+    .anchor('center-bottom')
+    .offsetX(0)
+    .offsetY(5)
+    .titleFormat('{%X}')
+    .format('{%SeriesName}: {%Value}{groupsSeparator:}');
+
+  // set container id for the chart
+  chart.container('container');
+
+  // initiate chart drawing
+  chart.draw();
+});
+</script>
+
 </div>
