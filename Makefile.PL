@@ -11,7 +11,7 @@ WriteMakefile(
     NAME                => 'Nutrients::DB',
     AUTHOR              => q{Gene Boggs <gene@ology.net>},
     VERSION_FROM        => 'lib/Nutrients/DB.pm',
-    ABSTRACT            => 'YOUR APPLICATION ABSTRACT',
+    ABSTRACT            => 'Alphabetical interface into USDA nutrition',
     ($eumm_version >= 6.3001
       ? ('LICENSE'=> 'perl')
       : ()),
@@ -20,6 +20,7 @@ WriteMakefile(
         'Test::More' => 0,
         'YAML'       => 0,
         'Dancer2'     => 0.205002,
+        'Dancer2::Plugin::Database' => 0,
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'Nutrients-DB-*' },
