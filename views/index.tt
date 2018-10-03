@@ -2,18 +2,7 @@
 
     <div id="content">
 
-        <div id="header">
-            <div id="head" style="float: left;">
-                <h1><a href="/" style="text-decoration: none;">[% page_title %]</a></h1>
-            </div>
-            <div id="search" style="float: right;">
-                <form action="/search" method="post">
-                    <input type="text" name="search_text" />
-                    <input type="submit" name="search" value="Search" />
-                </form>
-            </div>
-        </div>
-<br clear="all">
+[% INCLUDE 'header.tt' %]
 
         <div id="foods">
 [% INCLUDE 'alpha.tt' %]
