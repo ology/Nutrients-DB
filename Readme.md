@@ -13,6 +13,6 @@ You will need a webserver installed, so I recommend doing this:
 
   > sudo cpan Plack
 
-Then run the psgi app with a webserver like this:
+Then run the psgi app with your webserver like this:
 
   > plackup bin/app.psgi
