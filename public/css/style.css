@@ -131,6 +131,12 @@ color: #555;
 font-size: 13px;
 }
 
+.no_value {
+}
+.has_value {
+color: black !important;
+}
+
 #search {
 margin: 0;
 padding-top: 10px;

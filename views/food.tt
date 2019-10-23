@@ -15,7 +15,7 @@
             <p><b>Nutrients:</b></p>
             <ul>
 [% FOREACH key IN nutrients.keys.sort %]
-                <li>
+                <li class="[% IF nutrients.$key.value > 0 %]has_value[% ELSE %]no_value[% END %]">
                     [% nutrients.$key.nutrient %] ([% nutrients.$key.nutgroup %]) : [% nutrients.$key.value %] [% nutrients.$key.units %]
                 </li>
 [% END %]
