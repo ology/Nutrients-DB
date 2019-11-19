@@ -37,9 +37,8 @@ get '/' => sub {
     }
 
     template 'index' => {
-        page_title => 'Nutrients::DB',
-        letter     => $letter,
-        results    => $results,
+        letter  => $letter,
+        results => $results,
     };
 };
 
@@ -57,8 +56,7 @@ post '/search' => sub {
     }
 
     template 'index' => {
-        page_title => 'Nutrients::DB',
-        results    => $results,
+        results => $results,
     };
 };
 
@@ -84,10 +82,9 @@ get '/food' => sub {
     }
 
     template 'food' => {
-        page_title => 'Nutrients::DB',
-        nutrients  => $nutrients,
-        food       => $food,
-        fgroup     => $fgroup,
+        nutrients => $nutrients,
+        food      => $food,
+        fgroup    => $fgroup,
     };
 };
 
@@ -132,10 +129,9 @@ post '/compare' => sub {
     }
 
     template 'compare' => {
-        page_title => 'Nutrients::DB',
-        food1      => $food1,
-        food2      => $food2,
-        nutrients  => $nutrients1,
+        food1     => $food1,
+        food2     => $food2,
+        nutrients => $nutrients1,
     };
 };
 
