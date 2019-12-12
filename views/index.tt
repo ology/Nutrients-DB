@@ -16,8 +16,8 @@
             <ol>
 [% FOREACH key IN results.keys.sort %]
             <li>
-                <input type="checkbox" name="compare" value="[% results.$key.id %]" id="compare_foods" />
-                <a href="/food?id=[% results.$key.id %]">[% results.$key.food %]</a>
+                <input type="checkbox" name="compare" value="[% results.$key.id %]" id="compare_foods_[% results.$key.id %]" />
+                <a href="/food?id=[% results.$key.id %]">[% results.$key.food %]</a> [% results.$key.id %]
             </li>
 [% END %]
             </ol>
@@ -30,3 +30,21 @@
     </div>
 
 </div>
+
+<script>
+$(document).ready(function () {
+    $('input[type=checkbox]').click(function () {
+        var check = $('input[type=checkbox]:checked').length;
+        if (check > 1) {
+            $('input[type=checkbox]:not(:checked)').each(function() {
+                $(this).prop( "disabled", true );
+            });
+        }
+        else {
+            $('input[type=checkbox]:not(:checked)').each(function() {
+                $(this).prop( "disabled", false );
+            });
+        }
+    });
+});
+</script>
