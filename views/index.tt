@@ -17,7 +17,7 @@
 [% FOREACH key IN results.keys.sort %]
             <li>
                 <input type="checkbox" name="compare" value="[% results.$key.id %]" id="compare_foods_[% results.$key.id %]" />
-                <a href="/food?id=[% results.$key.id %]">[% results.$key.food %]</a> [% results.$key.id %]
+                <a href="/food?id=[% results.$key.id %]">[% results.$key.food %]</a>
             </li>
 [% END %]
             </ol>
