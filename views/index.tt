@@ -14,12 +14,12 @@
             <input type="reset" name="reset" value="Reset" />
 
             <ol>
-[% FOREACH key IN results.keys.sort %]
+    [% FOREACH key IN results.keys.sort %]
             <li>
                 <input type="checkbox" name="compare" value="[% results.$key.id %]" id="compare_foods_[% results.$key.id %]" />
                 <a href="/food?id=[% results.$key.id %]">[% results.$key.food %]</a>
             </li>
-[% END %]
+    [% END %]
             </ol>
 
             </form>
