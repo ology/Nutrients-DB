@@ -6,8 +6,8 @@
 [% IF results.size %]
             <form action="/compare" method="post">
             <p>
-            <input type="submit" name="submit" value="Compare Two Foods" id="compare" />
-            <input type="reset" name="reset" value="Reset" />
+            <input type="submit" name="submit" value="Compare Two Foods" id="compare" style="border: 1px solid #bbb;">
+            <input type="reset" name="reset" value="Reset" style="border: 1px solid #bbb;">
 
             <ol>
     [% FOREACH key IN results.keys.sort %]
