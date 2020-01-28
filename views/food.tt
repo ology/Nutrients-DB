@@ -1,7 +1,3 @@
-<div id="page">
-
-    <div id="content">
-
 [% INCLUDE 'header.tt' %]
 
         <div id="foods">
@@ -21,7 +17,3 @@
 [% END %]
             </ul>
         </div>
-
-    </div>
-
-</div>
