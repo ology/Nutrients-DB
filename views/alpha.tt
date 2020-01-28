@@ -3,10 +3,7 @@
     [% IF i == letter %]
                 <b>[% i %]</b>
     [% ELSE %]
-                <a href="/?letter=[% i %]" style="text-decoration: none;">[% i %]</a>
-    [% END %]
-    [% IF i != 'Z' %]
-                |
+                <a href="/?letter=[% i %]" class="button" style="border: 1px solid #bbb;">[% i %]</a>
     [% END %]
 [% END %]
             </h1>
