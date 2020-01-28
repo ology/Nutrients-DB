@@ -1,7 +1,7 @@
             <h1>
 [% FOREACH i IN ['A' .. 'Z'] %]
     [% IF i == letter %]
-                <b>[% i %]</b>
+                <b>[% i %]</b> &nbsp;
     [% ELSE %]
                 <a href="/?letter=[% i %]" class="button" style="border: 1px solid #bbb;">[% i %]</a>
     [% END %]
